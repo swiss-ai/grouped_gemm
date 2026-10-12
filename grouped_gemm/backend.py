@@ -7,6 +7,9 @@ import torch
 # c++ operations.
 import grouped_gemm_backend as backend
 
+# Expose the native chunk-boundary helper at the package backend API.
+tokens_per_expert_chunk_sum = backend.tokens_per_expert_chunk_sum
+
 
 def _allocate_output(a, b, batch_sizes, trans_a, trans_b):
     assert not (trans_a and trans_b)
